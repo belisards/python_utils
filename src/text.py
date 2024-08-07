@@ -1,3 +1,13 @@
+import os
+import re
+import sys
+import unicodedata
+from urllib.parse import urlparse
+
+import pandas as pd
+from sklearn.feature_extraction.text import CountVectorizer
+
+
 def find_text(text, column='automatic_subtitle'):
     condition = df[column].str.contains(text, regex=False)
     # Check if the text is in the automatic_subtitle column
