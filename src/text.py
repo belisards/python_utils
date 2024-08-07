@@ -1,6 +1,7 @@
 # import os
 import re
 # import sys
+import Counter
 from urllib.parse import urlparse
 from publicsuffix2 import get_sld
 
@@ -118,7 +119,7 @@ def bold_fraktur_to_regular(text):
     regular_text = ''.join(bold_fraktur_map.get(char, char) for char in text)
     return regular_text
 
-def count_next_word_after(tokens,keyword):
+def count_next_word(tokens,keyword):
   """
   This function takes a string and counts the occurrences of the next word after keywords
 
@@ -138,3 +139,4 @@ def count_next_word_after(tokens,keyword):
       next_words_counter[next_word] += 1
 
   return next_words_counter
+
