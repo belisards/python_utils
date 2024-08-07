@@ -3,6 +3,7 @@ import re
 import sys
 import unicodedata
 from urllib.parse import urlparse
+from publicsuffix2 import get_sld
 
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
