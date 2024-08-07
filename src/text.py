@@ -42,10 +42,10 @@ def remove_accents(text):
     nfkd_form = unicodedata.normalize('NFKD', text)
     return u"".join([c for c in nfkd_form if not unicodedata.combining(c)])
 
-def format_filename(graph_title,base_path=IMG_PATH,format=".svg"):
+def format_filename(graph_title,base_path,format=".svg"):
     graph_title_no_accents = remove_accents(graph_title)
     svg_filename = graph_title_no_accents.replace(" ", "_").lower() + format
-    return IMG_PATH + svg_filename
+    return base_path + svg_filename
 
 def clean_text(text):
   text = str(text)
