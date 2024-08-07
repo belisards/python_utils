@@ -52,10 +52,6 @@ def remove_accents(text):
     nfkd_form = unicodedata.normalize('NFKD', text)
     return u"".join([c for c in nfkd_form if not unicodedata.combining(c)])
 
-def format_filename(graph_title,base_path,format=".svg"):
-    graph_title_no_accents = remove_accents(graph_title)
-    svg_filename = graph_title_no_accents.replace(" ", "_").lower() + format
-    return base_path + svg_filename
 
 def clean_text(text):
   text = str(text)
@@ -105,3 +101,8 @@ def get_top_ngrams(corpus, ngram_range, stop_words=None, n=None):
 
     df = pd.DataFrame({'Word': words, 'Freq': freqs})
     return df
+
+def find_social_networks(description,social_network_keywords):
+    description = description.lower()
+    found_networks = [keyword for keyword in social_network_keywords if keyword in description.lower()]
+    return found_networks
