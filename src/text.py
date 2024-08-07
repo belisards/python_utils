@@ -1,7 +1,6 @@
-import os
+# import os
 import re
-import sys
-import unicodedata
+# import sys
 from urllib.parse import urlparse
 from publicsuffix2 import get_sld
 
@@ -47,11 +46,6 @@ def extract_urls(text):
   )
   urls = url_pattern.findall(text)
   return urls
-
-
-def remove_accents(text):
-    nfkd_form = unicodedata.normalize('NFKD', text)
-    return u"".join([c for c in nfkd_form if not unicodedata.combining(c)])
 
 
 def clean_text(text):

@@ -1,9 +1,12 @@
-import os
-import unicodedata
-
+#import os
 import plotly.express as px
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
+import unicodedata
+
+def remove_accents(text):
+    nfkd_form = unicodedata.normalize('NFKD', text)
+    return u"".join([c for c in nfkd_form if not unicodedata.combining(c)])
 
 
 def format_filename(graph_title,base_path,format=".svg"):
