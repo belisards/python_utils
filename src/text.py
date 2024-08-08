@@ -1,7 +1,7 @@
 # import os
 import re
 # import sys
-import Counter
+from collections import Counter
 from urllib.parse import urlparse
 from publicsuffix2 import get_sld
 
